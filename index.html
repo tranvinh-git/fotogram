@@ -7,43 +7,51 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/icon/favicon.png" type="image/x-icon">
     <title>Fotogram</title>
-    </head>
+</head>
 
-<body>
+<body onload="displayImages()">
     <!-- Semantische Struktur -->
     <header>
-        <div>
+        <div class="header-container">
             <img src="/icon/favicon.svg" alt="Fotogram Logo">
+
+            <h1>Fotogram</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="#">Impressum</a></li>
+                </ul>
+            </nav>
         </div>
-        <h1>Fotogram</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Impressum</a></li>
-                <li><a href="#">Kontakt</a></li>
-            </ul>
-        </nav>
     </header>
-    <main>
-        <section>
-            <h2>Willkommen bei Fotogram</h2>
-            <p>Entdecke und teile deine schönsten Fotos!</p>
-        </section>
-        <section>
-            <h2>Galerie</h2>
-            <figure>
-                <img src="beispielbild.jpg" alt="Beispielbild">
-                <figcaption>Ein schönes Beispielbild</figcaption>
-            </figure>
-        </section>
+
+
+    <main id="mainContent">
+        <h2>Willkommen bei meinen Fotos!</h2>
+        <p>Schaut euch meine schönen Bilder an!</p>
+        <div class="pics-container">
+            <div id="imgDiv" class="img-div"></div>
+        </div>
+        <dialog class="dialog-content" id="dialogContent" onclick="closeDialogOnClickOutside(event)"></dialog>
     </main>
+
+
     <aside>
-        <h3>Neuigkeiten</h3>
-        <p>Bleibe auf dem Laufenden mit den neuesten Updates.</p>
+        <div class="aside-container">
+            <h3>Stay tuned</h3>
+            <p>Bleibe auf dem Laufenden mit den neuesten Updates.</p>
+
+        </div>
     </aside>
     <footer>
-        <p>&copy; 2025 by Vinh Tran. Alle Rechte vorbehalten.</p>
+        <div class="footer-container">
+            <div class="footer-center">
+                <img src="/icon/favicon.png" class="footer-icon" alt="Fotogram Logo">
+                <p>&copy; 2025 by Vinh Tran. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="java.js"></script>
 
 </body>
 
