@@ -150,7 +150,7 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: darkgrey;
-    height: 100px;
+    height: 100px;  
 }
 
 .footer-icon {
@@ -197,6 +197,12 @@ footer {
         display: flex;
         justify-content: center;
     }
+    header {
+        height: 150px;
+    }
+    footer {
+        height: 80px;
+    }
 }
 
 
@@ -212,6 +218,9 @@ footer {
 
     header img {
         width: 60px;
+    }
+    header {
+        height: 100px;
     }
 
     .img-div img {
