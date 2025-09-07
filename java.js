@@ -2,6 +2,7 @@ const imagesContainer = document.getElementById("imgDiv");
 const dialog = document.getElementById("dialogContent");
 
 let images = [
+    "autum.jpg",
     "lake1.jpg",
     "lake2.jpg",
     "lake3.jpg",
@@ -13,6 +14,9 @@ let images = [
     "mountains7.jpg",
     "mountains8.jpg",
     "mountains9.jpg",
+    "mountains10.jpg",
+    "mountains11.jpg",
+    "fog.jpg",
     "road-mountain.jpg"
 ];
 
