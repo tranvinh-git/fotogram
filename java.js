@@ -1,115 +1,120 @@
-const imagesContainer = document.getElementById("imgDiv");
-const dialog = document.getElementById("dialogContent");
+let imageRef = document.getElementById('main_images');
 
-let images = [
-    "autum.jpg",
-    "lake1.jpg",
-    "lake2.jpg",
-    "lake3.jpg",
-    "mountains1.jpg",
-    "mountains2.jpg",
-    "mountains4.jpg",
-    "mountains5.jpg",
-    "mountains6.jpg",
-    "mountains7.jpg",
-    "mountains8.jpg",
-    "mountains9.jpg",
-    "mountains10.jpg",
-    "mountains11.jpg",
+let myImages = [
+    "./img/autum.jpg",
+    "./img/lake1.jpg",
+    "./img/lake2.jpg",
+    "./img/lake3.jpg",
+    "./img/mountains1.jpg",
+    "./img/mountains2.jpg",
+    "./img/mountains4.jpg",
+    "./img/mountains5.jpg",
+    "./img/mountains6.jpg",
+    "./img/mountains7.jpg",
+    "./img/mountains8.jpg",
+    "./img/mountains9.jpg",
+    "./img/mountains10.jpg",
+    "./img/mountains11.jpg",
+    "./img/fog.jpg",
+    "./img/road-mountain.jpg"
+];
+let IdImages = [
+    "Image_0",
+    "Image_1",
+    "Image_2",
+    "Image_3",
+    "Image_4",
+    "Image_5",
+    "Image_6",
+    "Image_7",
+    "Image_8",
+    "Image_9",
+    "Image_10",
+    "Image_11",
+    "Image_12",
+    "Image_13",
+    "Image_14",
+    "Image_15"
+]
+
+let myAltTexts = [
+    "autum",
+    "lake1",
+    "lake2",
+    "lake3",
+    "mountains1",
+    "mountains2",
+    "mountains4",
+    "mountains5",
+    "mountains6",
+    "mountains7",
+    "mountains8",
+    "mountains9",
+    "mountains10",
+    "mountains11",
     "fog.jpg",
-    "road-mountain.jpg"
+    "road-mountain"
 ];
 
-function displayImages() {
-  imagesContainer.innerHTML = ""; 
-  images.forEach((image, index) => {
-    imagesContainer.innerHTML += getNoteTemplate(image, index);
-    createEventListenersForImages();
-  }); 
+function renderImage() {
+    imageRef.innerHTML = "";
+    for (let i = 0; i < myImages.length; i++) {
+        imageRef.innerHTML += getImages(i);
+    }
+
 }
 
-function getNoteTemplate(image, index) {
-  return `
-      <img src="./img/${image}" class="img-thumbnail" 
-      id="${index}" tabindex="0" alt="${image.slice(0, -4)}" 
-     role="button"/>`;
+function getImages(i) {
+    return `<img    class="images"  
+                    tabindex="0"  
+                    aria-haspopup="dialog" aria-controls="overlay" 
+                    onkeydown="if(event.key === 'Enter') 
+                    openDialog(${i})" 
+                    onclick="openDialog(${i})" 
+                    src="${myImages[i]}" 
+                    alt="${myAltTexts[i]}">`;
 }
-function createEventListenersForImages() {
-    const imgElements = imagesContainer.querySelectorAll("img");
-  console.log("imgElements:", imgElements);
+//Open dialog
 
-  imgElements.forEach((img) => {
-    img.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault(); 
-        openDialog(img);
-      }
-    });
-    img.addEventListener("click", () => {
-      openDialog(img);
-    });
-  });
-}
-
-function openDialog(item) {
-  createDialog(item);
-  dialog.showModal();
-}
-
-let createDialog = (item) => {
-  dialog.innerHTML = "";
-  dialog.innerHTML += getDialogTemplate(item);
-}     
-
-function getDialogTemplate(item) {
-  return `
-  <div class="inner-dialog">
-      ${item.outerHTML}
-      <div class="next-and-prev-buttons">
-        <button class="prev-image" id="prev" onclick="prevImage(${item.id})" aria-label="vorheriges Bild">
-          <img src="./icon/pfeil_left.png" aria-labelledby="next" class="arrow-next" id="nextArrow" 
-            alt="Next Image">
-        </button>
-        <button class="close" onclick="closeDialog()" aria-label="Ansicht Schließen">&times;</button>
-        <button class="next-image" id="next" onclick="nextImage(${item.id})" aria-label="nächstes Bild">
-          <img src="./icon/pfeil_right.png" aria-labelledby="next" class="arrow-prev" id="nextArrow" 
-            alt="Next Image">
-        </button>
-      </div>
-  </div>
-  `;
+function openDialog(i) {
+    let dialogRef = document.getElementById('overlay');
+    dialogRef.innerHTML = `
+   <section class="dialog_content" onClick="logDownWBubblingPrevention(event)">
+       <img class="dialogImage" id="dialogImage" src="${myImages[i]}" alt="${myAltTexts[i]}">
+   </section>
+   <section class="dialog_footer" >
+       <button aria-label="Prev_Dialog" id="prevButton" onclick="openDialog(${(i - 1 + myImages.length) % myImages.length}); logDownWBubblingPrevention(event)"
+        tabindex="0"><img class="prevButton" tabindex="0" src="./icon/arrow-left-solid-full.svg"></button>
+        <img aria-label="Close_Dialog" class="close_x" tabindex="0" onclick="closeDialog(${i})" src="icon/xmark-solid-full.svg" alt="Close">
+        <button aria-label="next_Dialog" id="nextButton" onclick="openDialog(${(i + 1) % myImages.length}); logDownWBubblingPrevention(event)"
+        tabindex="0"><img class="nextButton" tabindex="0" src="./icon/arrow-right-solid-full.svg"></button>
+   </section>`;
+    dialogRef.showModal();
 }
 
-// Check if the click is outside the dialog content
-function closeDialogOnClickOutside(event) {
-  if (event.target === dialog) {
-    closeDialog();
-  }
-}
+//Close dialog 
 
-// Check if the dialog is open before trying to close it
 function closeDialog() {
-  if (dialog.open) {
-    dialog.close();
-    dialog.innerHTML = "";
-  }
+    let dialogRef = document.getElementById('overlay');
+    dialogRef.close();
 }
 
-// showing next and previous image onclick
-function nextImage(id) {
-  let nextId = id + 1;
-  if (id == images.length - 1) {
-    nextId = 0;
-  }
-  const nextImage = document.getElementById(nextId);
-  createDialog(nextImage);
+/*tabindex focus on h1 */
+
+function setFocusOnHeadline(isSpaceKey) {
+    const elemRef = document.getElementById('headline');
+    if (isSpaceKey) {
+        elemRef.focus();
+    }
 }
 
-function prevImage(id) {
-  let prevId = id - 1;
-  if (id == 0) {
-    prevId = images.length - 1;
-  }
-  const prevImage = document.getElementById(prevId);
-  createDialog(prevImage);
+function logUp() {
+    const body = document.getElementById('bodyMain')
+    body.addEventListener("click", closeDialog())  
 }
+
+function logDownWBubblingPrevention(event) {
+    const body = document.getElementById('overlay')
+    event.stopPropagation() 
+}
+
