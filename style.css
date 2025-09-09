@@ -143,53 +143,18 @@ p {
     height: 56vh;
 }
 
-.dialogContainer {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 16px;
-    background-color: black;
+@media (max-width: 1233px) {
+.img-thumbnail {
+        width: 100%;
+        height: 200px;
+        max-width: 200px;
+        object-fit: cover;
+        margin: 15px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        box-shadow: 0 5px 11px rgba(195 204 209);
+        border: none;
 }
-
-/* dialog button styles */
-
-.close_x {
-    height: 40px;
-    cursor: pointer;
-}
-
-
-.prevButton {
-    height: 50px;
-    cursor: pointer;
-}
-
-.nextButton {
-    height: 50px;
-    cursor: pointer;
-}
-
-button {
-    background: none;
-    border: solid 2px transparent;
-    border-radius: 80px;
-    outline: hsla(184, 94%, 65%, 0.685);
-    padding: 0;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: hsla(197, 48%, 47%, 0.685);
-    transition: all 150ms ease-in-out;
-}
-
-button:focus {
-    background-color: hsla(197, 48%, 47%, 0.685);
-    transition: all 150ms ease-in-out;
-}
-
-/*dialog hidden*/
-.d_none {
-    display: none;
 }
 
 @media (max-width: 943px) {
@@ -203,14 +168,12 @@ button:focus {
 
     .images {
         max-width: 180px;
-        min-height: 103px;
-        height: unset;
-        margin: 8px;
-    }
-
-    .image_gallery {
-        margin-bottom: 116px;
-        padding-top: unset;
+        object-fit: cover;
+        margin: 15px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        box-shadow: 0 3px 8px rgba(195 204 209);
+        border: none;
     }
 
     header {
@@ -267,6 +230,15 @@ button:focus {
 
     header {
         height: 100px;
+    }
+
+    .img-thumbnail {
+        width: 100%;
+        height: 300px;
+        max-width: 300px;
+        object-fit: cover;
+        margin: 15px;
+        display: flex;
         justify-content: center;
     }
 
