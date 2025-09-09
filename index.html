@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/icon/favicon.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="/icon/favicon.png" type="image/x-icon" />
     <title>Fotogram</title>
-</head>
-
-<body onload="displayImages()">
-    <!-- Semantische Struktur -->
+  </head>
+    <!-- Loading Pictures before start-->
+  <body onload="displayImages()">
+    <!-- Header Struktur -->
     <header>
-        <div class="header-container">
-            <img src="/icon/favicon.svg" alt="Fotogram Logo">
+      <div class="header-container">
+        <img class="header-logo" src="/icon/Fotogram_Logo.svg" alt="Fotogram Logo" />
 
-            <h1>Fotogram</h1>
-
-        </div>
+      </div>
     </header>
-
+    <!-- Main Section -->
     <main id="mainContent">
-        <section>
+      <section>
         <h2>Willkommen bei meinen Fotos</h2>
-        <p>Schaut euch meine schönen Bilder an!</p>
-        </div>
-        <div>
         <div id="imgDiv" class="img-div"></div>
-        </section>
-        <dialog class="dialog-content" id="dialogContent" onclick="closeDialogOnClickOutside(event)"></dialog>
+    <!-- Java starting here! -->
+      </section>
+    <!-- Kava Dialog starting here! -->  
+      <dialog
+        class="dialog-content"
+        id="dialogContent"
+        onclick="closeDialogOnClickOutside(event)"
+      ></dialog>
     </main>
-
-
+    <!-- Aside Section -->
     <aside>
-        <div class="aside-container">
-            <h3>Stay tuned</h3>
-            <p>Bleibe auf den Laufenden mit den neuesten Updates.</p>
-        </div>
+      <div class="aside-container">
+        <h3>Stay tuned</h3>
+        <p>Bleibe auf den Laufenden mit den neuesten Updates.</p>
+      </div>
     </aside>
+    <!-- Footer Section -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-center">
-                <img src="/icon/favicon.png" class="footer-icon" alt="Fotogram Logo">
-                <p>&copy; 2025 by Vinh Tran. Alle Rechte vorbehalten.</p>
-            </div>
+      <div class="footer-container">
+        <div class="footer-center">
+          <img
+            src="/icon/favicon.png"
+            class="footer-icon"
+            alt="Fotogram Logo"
+          />
+          <p>&copy; 2025 by Vinh Tran. Alle Rechte vorbehalten.</p>
         </div>
+      </div>
     </footer>
+    <!-- Java Script starting after all!-->
     <script src="java.js"></script>
-
-</body>
-
+  </body>
 </html>
