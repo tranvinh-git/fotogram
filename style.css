@@ -12,7 +12,7 @@ h1 {
     font-size: 48px;
     text-align: center;
     margin-top: 50px;
-    margin-bottom: unset;
+    margin-bottom: 50px;
 }
 h2 {
     text-align: center;
@@ -24,13 +24,12 @@ h2 {
 p {
     color: #ffffff;
     font-size: 16px;
-    margin-bottom: 50px;
 }
 
 /*header Section*/
 .header-container {
     width: 100%;
-    height: 140px;
+    height: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +40,7 @@ p {
 /*footer Section*/
 
 .footer-container {
-    height: 128px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
