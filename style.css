@@ -6,7 +6,7 @@
     font-family: "Raleway", sans-serif;
 }
 html {
-    height: 100vh;
+    height: 100%;
 }
 
 /* Text Styles*/
@@ -195,40 +195,7 @@ button:focus {
     display: none;
 }
 
-@media (max-width: 943px) {
 
-    /*Responsive Design for medium screens*/
-    h1 {
-        font-size: 32px;
-        margin-top: 50px;
-        margin-bottom: 10px;
-    }
-
-    .images {
-        max-width: 180px;
-        min-height: 103px;
-        height: unset;
-        margin: 8px;
-    }
-
-    .image_gallery {
-        margin-bottom: 50px;
-        padding-top: unset;
-    }
-
-    header {
-        height: 40px;
-    }
-
-    .head_icon {
-        height: 40px;
-        padding-left: 16px;
-    }
-
-    footer {
-        height: 100px;
-    }
-}
 
 @media (max-width: 500px) {
 
@@ -239,13 +206,19 @@ button:focus {
     }
 
     h1 {
+        font-size: 32px;
         margin-top: 50px;
-        margin-bottom: 22px;
+        margin-bottom: 10px;
     }
 
     .head_icon_pos {
         align-self: center;
         justify-self: center;
+    }
+
+        .head_icon {
+        height: 40px;
+        padding-left: 16px;
     }
 
     .images {

@@ -84,10 +84,10 @@ function openDialog(i) {
    </section>
    <section class="dialog_footer" >
        <button aria-label="Prev_Dialog" id="prevButton" onclick="openDialog(${(i - 1 + myImages.length) % myImages.length}); logDownWBubblingPrevention(event)"
-        tabindex="0"><img class="prevButton" tabindex="0" src="./icon/arrow-left.svg"></button>
-        <img aria-label="Close_Dialog" class="close_x" tabindex="0" onclick="closeDialog(${i})" src="./icon/xmark.svg" alt="Close">
+        tabindex="0"><img class="prevButton" tabindex="0" src="./img/icon/arrow-left.svg"></button>
+        <img aria-label="Close_Dialog" class="close_x" tabindex="0" onclick="closeDialog(${i})" src="./img/icon/xmark.svg" alt="Close">
         <button aria-label="next_Dialog" id="nextButton" onclick="openDialog(${(i + 1) % myImages.length}); logDownWBubblingPrevention(event)"
-        tabindex="0"><img class="nextButton" tabindex="0" src="./icon/arrow-right.svg"></button>
+        tabindex="0"><img class="nextButton" tabindex="0" src="./img/icon/arrow-right.svg"></button>
    </section>`;
     dialogRef.showModal();
 }
